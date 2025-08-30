@@ -1,74 +1,133 @@
 :root {
-  --primary: #0a192f;
-  --light: #f4f4f4;
-  --accent: #00bcd4;
+  --primary-bg: #0a192f;
+  --secondary-bg: #112240;
+  --text-primary: #ccd6f6;
+  --text-secondary: #8892b0;
+  --accent-color: #64ffda;
+  --accent-hover: rgba(100, 255, 218, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --font-sans: 'Poppins', sans-serif;
+}
+
+/* --- Base & Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--light);
-  color: #333;
-}
-
-header {
-  background-color: var(--primary);
-  color: white;
-  padding: 2rem 0;
-  text-align: center;
+  font-family: var(--font-sans);
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
+/* --- Header --- */
+header {
+  background-color: transparent;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+header p {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+/* --- Product Cards --- */
 .products {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
   margin: 2rem 0;
 }
 
 .product-card {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  width: 200px;
+  background: var(--secondary-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--shadow-color);
   text-align: center;
-  transition: 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .product-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border-color: var(--accent-color);
 }
 
 .product-card img {
   width: 100%;
-  border-radius: 8px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
-button#notify {
-  background-color: var(--primary);
-  color: white;
+.product-card h2 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.product-card .price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+/* --- Buttons --- */
+.notify-button {
+  background-color: transparent;
+  color: var(--accent-color);
   padding: 0.75rem 1.5rem;
-  border: none;
+  border: 1px solid var(--accent-color);
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: 500;
   margin-top: 2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-button#notify:hover {
-  background-color: var(--accent);
+.notify-button:hover {
+  background-color: var(--accent-hover);
 }
 
+/* --- Footer --- */
 footer {
-  background-color: #ddd;
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   margin-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .product-card {
+    width: 100%;
+  }
 }
