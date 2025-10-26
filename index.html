@@ -22,26 +22,18 @@
   </header>
 
   <main>
-    <div class="container">
-      <section class="products">
-        <div class="product-card">
-          <img src="https://placehold.co/200x150/112240/a8b2d1?text=Earbuds" alt="Wireless Earbuds">
-          <h2>Wireless Earbuds</h2>
-          <p class="price">₹1999</p>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/200x150/112240/a8b2d1?text=Power+Bank" alt="Power Bank">
-          <h2>10,000mAh Power Bank</h2>
-          <p class="price">₹1499</p>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/200x150/112240/a8b2d1?text=Speaker" alt="Bluetooth Speaker">
-          <h2>Bluetooth Speaker</h2>
-          <p class="price">₹2299</p>
-        </div>
-      </section>
+    <div class="container main-content">
+      <section id="product-grid" class="products"></section>
 
-      <button id="notify" class="notify-button">🔔 Enable Notifications</button>
+      <aside class="cart-container">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+          <p>Your cart is empty.</p>
+        </div>
+        <p class="cart-total">
+          <strong>Total: ₹<span id="cart-total-price">0.00</span></strong>
+        </p>
+      </aside>
     </div>
   </main>
 
